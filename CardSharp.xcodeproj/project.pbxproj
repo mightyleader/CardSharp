@@ -1,0 +1,283 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D4D83E8B150250FB000D4DFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D83E8A150250FB000D4DFC /* UIKit.framework */; };
+		D4D83E8D150250FB000D4DFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D83E8C150250FB000D4DFC /* Foundation.framework */; };
+		D4D83E8F150250FB000D4DFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D83E8E150250FB000D4DFC /* CoreGraphics.framework */; };
+		D4D83E95150250FB000D4DFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4D83E93150250FB000D4DFC /* InfoPlist.strings */; };
+		D4D83E97150250FB000D4DFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83E96150250FB000D4DFC /* main.m */; };
+		D4D83E9B150250FB000D4DFC /* RSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83E9A150250FB000D4DFC /* RSAppDelegate.m */; };
+		D4D83E9E150250FB000D4DFC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4D83E9C150250FB000D4DFC /* MainStoryboard.storyboard */; };
+		D4D83EA1150250FB000D4DFC /* RSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83EA0150250FB000D4DFC /* RSViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D4D83E86150250FA000D4DFC /* CardSharp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardSharp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4D83E8A150250FB000D4DFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D4D83E8C150250FB000D4DFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D4D83E8E150250FB000D4DFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D4D83E92150250FB000D4DFC /* CardSharp-Info.plist */ = {isa = PBXFileReference; path = "CardSharp-Info.plist"; sourceTree = "<group>"; };
+		D4D83E94150250FB000D4DFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4D83E96150250FB000D4DFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D4D83E98150250FB000D4DFC /* CardSharp-Prefix.pch */ = {isa = PBXFileReference; path = "CardSharp-Prefix.pch"; sourceTree = "<group>"; };
+		D4D83E99150250FB000D4DFC /* RSAppDelegate.h */ = {isa = PBXFileReference; path = RSAppDelegate.h; sourceTree = "<group>"; };
+		D4D83E9A150250FB000D4DFC /* RSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSAppDelegate.m; sourceTree = "<group>"; };
+		D4D83E9D150250FB000D4DFC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		D4D83E9F150250FB000D4DFC /* RSViewController.h */ = {isa = PBXFileReference; path = RSViewController.h; sourceTree = "<group>"; };
+		D4D83EA0150250FB000D4DFC /* RSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4D83E83150250FA000D4DFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4D83E8B150250FB000D4DFC /* UIKit.framework in Frameworks */,
+				D4D83E8D150250FB000D4DFC /* Foundation.framework in Frameworks */,
+				D4D83E8F150250FB000D4DFC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4D83E7B150250FA000D4DFC = {
+			isa = PBXGroup;
+			children = (
+				D4D83E90150250FB000D4DFC /* CardSharp */,
+				D4D83E89150250FB000D4DFC /* Frameworks */,
+				D4D83E87150250FA000D4DFC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4D83E87150250FA000D4DFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4D83E86150250FA000D4DFC /* CardSharp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4D83E89150250FB000D4DFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4D83E8A150250FB000D4DFC /* UIKit.framework */,
+				D4D83E8C150250FB000D4DFC /* Foundation.framework */,
+				D4D83E8E150250FB000D4DFC /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4D83E90150250FB000D4DFC /* CardSharp */ = {
+			isa = PBXGroup;
+			children = (
+				D4D83E99150250FB000D4DFC /* RSAppDelegate.h */,
+				D4D83E9A150250FB000D4DFC /* RSAppDelegate.m */,
+				D4D83E9C150250FB000D4DFC /* MainStoryboard.storyboard */,
+				D4D83E9F150250FB000D4DFC /* RSViewController.h */,
+				D4D83EA0150250FB000D4DFC /* RSViewController.m */,
+				D4D83E91150250FB000D4DFC /* Supporting Files */,
+			);
+			path = CardSharp;
+			sourceTree = "<group>";
+		};
+		D4D83E91150250FB000D4DFC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4D83E92150250FB000D4DFC /* CardSharp-Info.plist */,
+				D4D83E93150250FB000D4DFC /* InfoPlist.strings */,
+				D4D83E96150250FB000D4DFC /* main.m */,
+				D4D83E98150250FB000D4DFC /* CardSharp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4D83E85150250FA000D4DFC /* CardSharp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4D83EA4150250FB000D4DFC /* Build configuration list for PBXNativeTarget "CardSharp" */;
+			buildPhases = (
+				D4D83E82150250FA000D4DFC /* Sources */,
+				D4D83E83150250FA000D4DFC /* Frameworks */,
+				D4D83E84150250FA000D4DFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CardSharp;
+			productName = CardSharp;
+			productReference = D4D83E86150250FA000D4DFC /* CardSharp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4D83E7D150250FA000D4DFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RS;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Apple UK Retail";
+			};
+			buildConfigurationList = D4D83E80150250FA000D4DFC /* Build configuration list for PBXProject "CardSharp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D4D83E7B150250FA000D4DFC;
+			productRefGroup = D4D83E87150250FA000D4DFC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4D83E85150250FA000D4DFC /* CardSharp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4D83E84150250FA000D4DFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4D83E95150250FB000D4DFC /* InfoPlist.strings in Resources */,
+				D4D83E9E150250FB000D4DFC /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4D83E82150250FA000D4DFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4D83E97150250FB000D4DFC /* main.m in Sources */,
+				D4D83E9B150250FB000D4DFC /* RSAppDelegate.m in Sources */,
+				D4D83EA1150250FB000D4DFC /* RSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D4D83E93150250FB000D4DFC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4D83E94150250FB000D4DFC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D4D83E9C150250FB000D4DFC /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4D83E9D150250FB000D4DFC /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4D83EA2150250FB000D4DFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D4D83EA3150250FB000D4DFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4D83EA5150250FB000D4DFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CardSharp/CardSharp-Prefix.pch";
+				INFOPLIST_FILE = "CardSharp/CardSharp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D4D83EA6150250FB000D4DFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CardSharp/CardSharp-Prefix.pch";
+				INFOPLIST_FILE = "CardSharp/CardSharp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4D83E80150250FA000D4DFC /* Build configuration list for PBXProject "CardSharp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4D83EA2150250FB000D4DFC /* Debug */,
+				D4D83EA3150250FB000D4DFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4D83EA4150250FB000D4DFC /* Build configuration list for PBXNativeTarget "CardSharp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4D83EA5150250FB000D4DFC /* Debug */,
+				D4D83EA6150250FB000D4DFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4D83E7D150250FA000D4DFC /* Project object */;
+}
