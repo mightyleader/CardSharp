@@ -11,5 +11,9 @@
 @interface RSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) RSPackofCards *referenceDeck;
+@property (strong, nonatomic) NSMutableArray *shuffledDeckReference;
+
+- (void)newDeal;
 
 @end

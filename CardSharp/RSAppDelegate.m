@@ -11,12 +11,66 @@
 @implementation RSAppDelegate
 
 @synthesize window = _window;
+@synthesize referenceDeck = _referenceDeck;
+@synthesize shuffledDeckReference = _shuffledDeckReference;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self referenceDeck];
+    [self shuffledDeckReference];
     // Override point for customization after application launch.
     return YES;
 }
+
+- (RSPackofCards*)referenceDeck
+{
+    if (_referenceDeck == nil) 
+    {
+       _referenceDeck = [[RSPackofCards alloc] init];
+    }
+    return _referenceDeck;
+}
+
+- (void)newDeal
+{
+    [_shuffledDeckReference removeAllObjects];
+    _shuffledDeckReference = nil;
+    [self shuffledDeckReference];
+    
+//    for (int randomcard = 0; randomcard < [_shuffledDeckReference count]; randomcard++) 
+//    {
+//        int nextcard = [[_shuffledDeckReference objectAtIndex:randomcard] intValue];
+//        RSPlayingCard *foundCard = [[self referenceDeck].sortedDeck objectAtIndex:nextcard];
+//        NSLog(@"%@, %@", foundCard.longName, foundCard.cardText);
+//    } DEBUG
+    
+    
+}
+
+- (NSMutableArray*)shuffledDeckReference
+{
+    if (_shuffledDeckReference == nil) 
+    {
+        _shuffledDeckReference = [[NSMutableArray alloc] init];
+        //fill with random numbers from 0 - 52 as index references against the referenceDeck.
+        int n = 52;
+        NSMutableArray *numbers = [NSMutableArray array];
+        for (int i = 0; i < n; i++) {
+            [numbers addObject:[NSNumber numberWithInt:i]];
+        }
+        NSMutableArray *result = [NSMutableArray array];
+        while ([numbers count] > 0) {
+            int r = arc4random() % [numbers count];
+            NSNumber *randomElement = [numbers objectAtIndex:r];
+            [result addObject:randomElement];
+            [numbers removeObjectAtIndex:r];
+        }
+        _shuffledDeckReference = result;
+    }
+    return _shuffledDeckReference;
+}
+
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
