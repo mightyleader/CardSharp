@@ -11,4 +11,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "RSPlayingCard.h"
+    #import "RSPackofCards.h"
+    #import "RSAppDelegate.h"
 #endif
