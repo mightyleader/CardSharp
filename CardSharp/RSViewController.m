@@ -27,6 +27,10 @@
 @synthesize pcardFour;
 @synthesize pcardFive;
 @synthesize pcardTotal;
+@synthesize playershardofCards;
+@synthesize dealershandofCards;
+@synthesize playerCounts;
+@synthesize dealerCounts;
 
 - (void)viewDidLoad
 {
@@ -49,6 +53,10 @@
     [self setDcardFour:nil];
     [self setDcardFive:nil];
     [self setActionButton:nil];
+    [self setPlayershardofCards:nil];
+    [self setPlayerCounts:nil];
+    [self setDealerCounts:nil];
+    [self setDealershandofCards:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -95,7 +103,7 @@
     
 }
 
-- (void)dealCard:(int)indexToDeal
+- (void)dealCard
 {
     
 }
