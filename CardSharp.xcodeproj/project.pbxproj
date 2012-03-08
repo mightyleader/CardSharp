@@ -15,6 +15,8 @@
 		D4D83E9B150250FB000D4DFC /* RSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83E9A150250FB000D4DFC /* RSAppDelegate.m */; };
 		D4D83E9E150250FB000D4DFC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4D83E9C150250FB000D4DFC /* MainStoryboard.storyboard */; };
 		D4D83EA1150250FB000D4DFC /* RSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83EA0150250FB000D4DFC /* RSViewController.m */; };
+		D4D83EA915025407000D4DFC /* RSPackofCards.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83EA815025407000D4DFC /* RSPackofCards.m */; };
+		D4D83EAC1502553E000D4DFC /* RSPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83EAB1502553E000D4DFC /* RSPlayingCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +24,19 @@
 		D4D83E8A150250FB000D4DFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D4D83E8C150250FB000D4DFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D4D83E8E150250FB000D4DFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D4D83E92150250FB000D4DFC /* CardSharp-Info.plist */ = {isa = PBXFileReference; path = "CardSharp-Info.plist"; sourceTree = "<group>"; };
+		D4D83E92150250FB000D4DFC /* CardSharp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CardSharp-Info.plist"; sourceTree = "<group>"; };
 		D4D83E94150250FB000D4DFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D4D83E96150250FB000D4DFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D4D83E98150250FB000D4DFC /* CardSharp-Prefix.pch */ = {isa = PBXFileReference; path = "CardSharp-Prefix.pch"; sourceTree = "<group>"; };
-		D4D83E99150250FB000D4DFC /* RSAppDelegate.h */ = {isa = PBXFileReference; path = RSAppDelegate.h; sourceTree = "<group>"; };
+		D4D83E98150250FB000D4DFC /* CardSharp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CardSharp-Prefix.pch"; sourceTree = "<group>"; };
+		D4D83E99150250FB000D4DFC /* RSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSAppDelegate.h; sourceTree = "<group>"; };
 		D4D83E9A150250FB000D4DFC /* RSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSAppDelegate.m; sourceTree = "<group>"; };
 		D4D83E9D150250FB000D4DFC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		D4D83E9F150250FB000D4DFC /* RSViewController.h */ = {isa = PBXFileReference; path = RSViewController.h; sourceTree = "<group>"; };
+		D4D83E9F150250FB000D4DFC /* RSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSViewController.h; sourceTree = "<group>"; };
 		D4D83EA0150250FB000D4DFC /* RSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSViewController.m; sourceTree = "<group>"; };
+		D4D83EA715025407000D4DFC /* RSPackofCards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPackofCards.h; sourceTree = "<group>"; };
+		D4D83EA815025407000D4DFC /* RSPackofCards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPackofCards.m; sourceTree = "<group>"; };
+		D4D83EAA1502553E000D4DFC /* RSPlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPlayingCard.h; sourceTree = "<group>"; };
+		D4D83EAB1502553E000D4DFC /* RSPlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPlayingCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 		D4D83E90150250FB000D4DFC /* CardSharp */ = {
 			isa = PBXGroup;
 			children = (
+				D4D83EAD1502575A000D4DFC /* Cards */,
 				D4D83E99150250FB000D4DFC /* RSAppDelegate.h */,
 				D4D83E9A150250FB000D4DFC /* RSAppDelegate.m */,
 				D4D83E9C150250FB000D4DFC /* MainStoryboard.storyboard */,
@@ -96,6 +103,17 @@
 				D4D83E98150250FB000D4DFC /* CardSharp-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4D83EAD1502575A000D4DFC /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				D4D83EA715025407000D4DFC /* RSPackofCards.h */,
+				D4D83EA815025407000D4DFC /* RSPackofCards.m */,
+				D4D83EAA1502553E000D4DFC /* RSPlayingCard.h */,
+				D4D83EAB1502553E000D4DFC /* RSPlayingCard.m */,
+			);
+			name = Cards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +183,8 @@
 				D4D83E97150250FB000D4DFC /* main.m in Sources */,
 				D4D83E9B150250FB000D4DFC /* RSAppDelegate.m in Sources */,
 				D4D83EA1150250FB000D4DFC /* RSViewController.m in Sources */,
+				D4D83EA915025407000D4DFC /* RSPackofCards.m in Sources */,
+				D4D83EAC1502553E000D4DFC /* RSPlayingCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
