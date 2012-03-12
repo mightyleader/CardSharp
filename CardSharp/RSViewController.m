@@ -70,6 +70,15 @@
 
 - (IBAction)buttonPressed:(id)sender 
 {
+    //TODO: Take into account alternate value of Ace
+    //TODO: Handle 'Stand/Stick' action
+    //TODO: Handle 'Split' condition
+    //TODO: Handle dealers turn 
+    
+    if ([playershandofCards count] == 5) {
+        [playershandofCards removeAllObjects];
+    }
+    
     int pTotal = [pcardTotal.text intValue];
     pcardTotal.textColor = [UIColor blackColor];
     
@@ -101,7 +110,10 @@
     {
         pcardTotal.text = @"Bust!";
         pcardTotal.textColor = [UIColor redColor];
+        [playershandofCards removeAllObjects];
         [kDelegate newDeal];
+        //TODO: CLear all labels when bust.
+        //TODO: Pay dealer bet amount.
     } else {
         pTotal = pTotal + [nextCard.cardValue intValue];
         pcardTotal.text = [NSString stringWithFormat:@"%i", pTotal];
