@@ -43,8 +43,7 @@
 //        RSPlayingCard *foundCard = [[self referenceDeck].sortedDeck objectAtIndex:nextcard];
 //        NSLog(@"%@, %@", foundCard.longName, foundCard.cardText);
 //    } DEBUG
-    
-    
+
 }
 
 - (NSMutableArray*)shuffledDeckReference
@@ -55,11 +54,13 @@
         //fill with random numbers from 0 - 52 as index references against the referenceDeck.
         int n = 52;
         NSMutableArray *numbers = [NSMutableArray array];
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) 
+        {
             [numbers addObject:[NSNumber numberWithInt:i]];
         }
         NSMutableArray *result = [NSMutableArray array];
-        while ([numbers count] > 0) {
+        while ([numbers count] > 0) 
+        {
             int r = arc4random() % [numbers count];
             NSNumber *randomElement = [numbers objectAtIndex:r];
             [result addObject:randomElement];

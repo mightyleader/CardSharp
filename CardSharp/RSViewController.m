@@ -68,44 +68,39 @@
 
 - (IBAction)buttonPressed:(id)sender 
 {
-    int pTotal = 0;
-    int altTotal = 0;
-    [kDelegate newDeal];
+    int pTotal = [pcardTotal.text intValue];
+    //int altTotal = 0;
     
-    //First player card
-    int nextcard = [[[kDelegate shuffledDeckReference] objectAtIndex:0] intValue];
-    pcardOne.text = [[[kDelegate referenceDeck].sortedDeck objectAtIndex:nextcard] cardText];
-    if ([[[kDelegate referenceDeck].sortedDeck objectAtIndex:nextcard] altValue] != nil) {
-        altTotal = altTotal + [[[[kDelegate referenceDeck].sortedDeck objectAtIndex:nextcard] altValue] intValue];
-        pTotal = pTotal + [[[[kDelegate referenceDeck].sortedDeck objectAtIndex:nextcard] cardValue] intValue];
+    RSPlayingCard* nextCard = [self dealCard:FALSE toPlayer:@"player"];
+    [playershardofCards addObject:nextCard];
+    
+    NSLog(@"%i", [nextCard.cardValue intValue]);
+    
+    if ((pTotal + [nextCard.cardValue intValue]) > 21) 
+    {
+        pcardTotal.text = @"Bust!";
+        pcardTotal.textColor = [UIColor redColor];
     } else {
-        pTotal = pTotal + [[[[kDelegate referenceDeck].sortedDeck objectAtIndex:nextcard] cardValue] intValue];
-    }
-    
-    //Second player card
-    nextcard = [[[kDelegate shuffledDeckReference] objectAtIndex:1] intValue];
-    pcardTwo.text = [[[kDelegate referenceDeck].sortedDeck objectAtIndex:nextcard] cardText];
-    if ([[[kDelegate referenceDeck].sortedDeck objectAtIndex:nextcard] altValue] != nil && altTotal > 0) {
-        altTotal = altTotal + [[[[kDelegate referenceDeck].sortedDeck objectAtIndex:nextcard] altValue] intValue];
-        pTotal = pTotal + [[[[kDelegate referenceDeck].sortedDeck objectAtIndex:nextcard] cardValue] intValue];
-    } else if ([[[kDelegate referenceDeck].sortedDeck objectAtIndex:nextcard] altValue] != nil && altTotal == 0) {
-        
-    } else {
-        pTotal = pTotal + [[[[kDelegate referenceDeck].sortedDeck objectAtIndex:nextcard] cardValue] intValue];
-    }
-    
-    //Update the total
-    if (altTotal == 0) {
+        pTotal = pTotal + [nextCard.cardValue intValue];
         pcardTotal.text = [NSString stringWithFormat:@"%i", pTotal];
-    } else {
-        pcardTotal.text = [NSString stringWithFormat:@"%i/%i", pTotal, altTotal];
     }
+    
+
     
 }
 
-- (void)dealCard
+- (RSPlayingCard*)dealCard:(BOOL)newHand toPlayer:(NSString*)player
 {
+    if (newHand) 
+    {
+        [kDelegate newDeal]; //shuffles the deck
+    }
+    int nextentry = [playershardofCards count]; //effectively gives you the next place to deal a card into AND from. Nice.
+    int nextshuffledindex = [[[kDelegate shuffledDeckReference] objectAtIndex:nextentry] intValue];
+    RSPlayingCard *dealtCard = [[kDelegate referenceDeck].sortedDeck objectAtIndex:nextshuffledindex];
     
+    return dealtCard;
+
 }
 
 @end

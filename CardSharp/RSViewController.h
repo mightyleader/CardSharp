@@ -35,6 +35,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *actionButton;
 
 - (IBAction)buttonPressed:(id)sender;
-- (void)dealCard;
+- (RSPlayingCard*)dealCard:(BOOL)newHand toPlayer:(NSString*)player;
 
 @end
