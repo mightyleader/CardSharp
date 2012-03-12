@@ -75,12 +75,13 @@
     //TODO: Handle 'Split' condition
     //TODO: Handle dealers turn 
     
-    if ([playershandofCards count] == 5) {
+    if ([playershandofCards count] == 5) 
+    {
         [playershandofCards removeAllObjects];
     }
     
     int pTotal = [pcardTotal.text intValue];
-    pcardTotal.textColor = [UIColor blackColor];
+    pcardTotal.textColor = [UIColor whiteColor];
     
     RSPlayingCard* nextCard = [self dealCard:FALSE toPlayer:@"player"];
     [playershandofCards addObject:nextCard];
@@ -110,9 +111,9 @@
     {
         pcardTotal.text = @"Bust!";
         pcardTotal.textColor = [UIColor redColor];
-        [playershandofCards removeAllObjects];
+        [playershandofCards removeAllObjects]; 
         [kDelegate newDeal];
-        //TODO: CLear all labels when bust.
+        pcardOne.text = nil; pcardTwo.text = nil; pcardThree.text = nil; pcardFour.text = nil; pcardFive.text = nil;
         //TODO: Pay dealer bet amount.
     } else {
         pTotal = pTotal + [nextCard.cardValue intValue];
@@ -130,8 +131,8 @@
         [kDelegate newDeal]; //shuffles the deck
     }
     int nextentry = [playershandofCards count]; //effectively gives you the next place to deal a card into AND from. Nice.
-    int nextshuffledindex = [[[kDelegate shuffledDeckReference] objectAtIndex:nextentry] intValue];
-    RSPlayingCard *dealtCard = [[kDelegate referenceDeck].sortedDeck objectAtIndex:nextshuffledindex];
+    int nextshuffledcard = [[[kDelegate shuffledDeckReference] objectAtIndex:nextentry] intValue];
+    RSPlayingCard *dealtCard = [[kDelegate referenceDeck].sortedDeck objectAtIndex:nextshuffledcard];
     
     return dealtCard;
 
