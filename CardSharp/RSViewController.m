@@ -27,7 +27,7 @@
 @synthesize pcardFour;
 @synthesize pcardFive;
 @synthesize pcardTotal;
-@synthesize playershardofCards;
+@synthesize playershandofCards;
 @synthesize dealershandofCards;
 @synthesize playerCounts;
 @synthesize dealerCounts;
@@ -35,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    playershandofCards = [[NSMutableArray alloc] initWithCapacity:10];
+    dealershandofCards = [[NSMutableArray alloc] initWithCapacity:5];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -53,7 +55,7 @@
     [self setDcardFour:nil];
     [self setDcardFive:nil];
     [self setActionButton:nil];
-    [self setPlayershardofCards:nil];
+    [self setPlayershandofCards:nil];
     [self setPlayerCounts:nil];
     [self setDealerCounts:nil];
     [self setDealershandofCards:nil];
@@ -69,23 +71,43 @@
 - (IBAction)buttonPressed:(id)sender 
 {
     int pTotal = [pcardTotal.text intValue];
-    //int altTotal = 0;
+    pcardTotal.textColor = [UIColor blackColor];
     
     RSPlayingCard* nextCard = [self dealCard:FALSE toPlayer:@"player"];
-    [playershardofCards addObject:nextCard];
+    [playershandofCards addObject:nextCard];
     
-    NSLog(@"%i", [nextCard.cardValue intValue]);
+    switch ([playershandofCards count]) 
+    {
+        case 1:
+            pcardOne.text = nextCard.cardText;
+            break;
+        case 2:
+            pcardTwo.text = nextCard.cardText;
+            break;
+        case 3:
+            pcardThree.text = nextCard.cardText;
+            break;
+        case 4:
+            pcardFour.text = nextCard.cardText;
+            break;
+        case 5:
+            pcardFive.text = nextCard.cardText;
+            break;
+        default:
+            break;
+    }
     
     if ((pTotal + [nextCard.cardValue intValue]) > 21) 
     {
         pcardTotal.text = @"Bust!";
         pcardTotal.textColor = [UIColor redColor];
+        [kDelegate newDeal];
     } else {
         pTotal = pTotal + [nextCard.cardValue intValue];
         pcardTotal.text = [NSString stringWithFormat:@"%i", pTotal];
     }
     
-
+    
     
 }
 
@@ -95,7 +117,7 @@
     {
         [kDelegate newDeal]; //shuffles the deck
     }
-    int nextentry = [playershardofCards count]; //effectively gives you the next place to deal a card into AND from. Nice.
+    int nextentry = [playershandofCards count]; //effectively gives you the next place to deal a card into AND from. Nice.
     int nextshuffledindex = [[[kDelegate shuffledDeckReference] objectAtIndex:nextentry] intValue];
     RSPlayingCard *dealtCard = [[kDelegate referenceDeck].sortedDeck objectAtIndex:nextshuffledindex];
     

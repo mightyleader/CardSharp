@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *pcardFour;
 @property (strong, nonatomic) IBOutlet UILabel *pcardFive;
 @property (strong, nonatomic) IBOutlet UILabel *pcardTotal; //TODO: get rid of this when we don't need it, move to array
-@property (strong, nonatomic) NSMutableArray *playershardofCards;
+@property (strong, nonatomic) NSMutableArray *playershandofCards;
 @property (strong, nonatomic) NSMutableArray *playerCounts;
 
 //Dealer Properties
