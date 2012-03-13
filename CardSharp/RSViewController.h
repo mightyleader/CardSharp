@@ -31,10 +31,14 @@
 @property (strong, nonatomic) NSMutableArray *dealershandofCards;
 @property (strong, nonatomic) NSMutableArray *dealerCounts;
 
+//Hand Properties
+@property (nonatomic) BOOL aceFlag;
+
 //Controls
 @property (strong, nonatomic) IBOutlet UIButton *actionButton;
 
 - (IBAction)buttonPressed:(id)sender;
 - (RSPlayingCard*)dealCard:(BOOL)newHand toPlayer:(NSString*)player;
+- (void)resetPlay;
 
 @end

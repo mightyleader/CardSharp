@@ -31,6 +31,7 @@
 @synthesize dealershandofCards;
 @synthesize playerCounts;
 @synthesize dealerCounts;
+@synthesize aceFlag;
 
 - (void)viewDidLoad
 {
@@ -70,7 +71,6 @@
 
 - (IBAction)buttonPressed:(id)sender 
 {
-    //TODO: Take into account alternate value of Ace
     //TODO: Handle 'Stand/Stick' action
     //TODO: Handle 'Split' condition
     //TODO: Handle dealers turn 
@@ -81,11 +81,21 @@
     }
     
     int pTotal = [pcardTotal.text intValue];
+
     pcardTotal.textColor = [UIColor whiteColor];
     
     RSPlayingCard* nextCard = [self dealCard:FALSE toPlayer:@"player"];
     [playershandofCards addObject:nextCard];
+    pTotal = pTotal + [nextCard.cardValue intValue];
+    int aTotal = pTotal + 10;
     
+    //Ace detector
+    if ([nextCard.cardValue intValue] == 1) 
+    {
+        aceFlag = TRUE;
+    }
+    
+    //Set label text appropriately
     switch ([playershandofCards count]) 
     {
         case 1:
@@ -107,21 +117,21 @@
             break;
     }
     
-    if ((pTotal + [nextCard.cardValue intValue]) > 21) 
+    if (pTotal > 21) 
     {
         pcardTotal.text = @"Bust!";
         pcardTotal.textColor = [UIColor redColor];
         [playershandofCards removeAllObjects]; 
         [kDelegate newDeal];
-        pcardOne.text = nil; pcardTwo.text = nil; pcardThree.text = nil; pcardFour.text = nil; pcardFive.text = nil;
+        [self resetPlay];
         //TODO: Pay dealer bet amount.
     } else {
-        pTotal = pTotal + [nextCard.cardValue intValue];
         pcardTotal.text = [NSString stringWithFormat:@"%i", pTotal];
+        if (aceFlag && aTotal <= 21) 
+        {
+            pcardTotal.text = [pcardTotal.text stringByAppendingFormat:@" or %i", aTotal];
+        }
     }
-    
-    
-    
 }
 
 - (RSPlayingCard*)dealCard:(BOOL)newHand toPlayer:(NSString*)player
@@ -136,6 +146,23 @@
     
     return dealtCard;
 
+}
+
+- (void)resetPlay
+{
+    pcardOne.text = nil; 
+    pcardTwo.text = nil; 
+    pcardThree.text = nil; 
+    pcardFour.text = nil; 
+    pcardFive.text = nil;
+    dcardOne.text = nil;
+    dcardTwo.text = nil;
+    dcardThree.text = nil;
+    dcardFour.text = nil;
+    dcardFive.text = nil;
+    aceFlag = FALSE;
+    [playershandofCards removeAllObjects];
+    
 }
 
 @end
