@@ -71,19 +71,24 @@
 
 - (IBAction)buttonPressed:(id)sender 
 {
+    [self playerLogic];
+}
+
+- (void)playerLogic
+{
     //TODO: Handle 'Stand/Stick' action
     //TODO: Handle 'Split' condition
     //TODO: Handle dealers turn 
-    //TODO: Spin all this out into a seperate method? 
     
     if ([playershandofCards count] == 5) 
     {
         [playershandofCards removeAllObjects]; //TODO: Extraneous? Might be, remove if so.
     }
     
-    int pTotal = [pcardTotal.text intValue];
-
+    int pTotal = [pcardTotal.text intValue]; //Carry over the running total
+    
     pcardTotal.textColor = [UIColor whiteColor];
+    pcardTotal.backgroundColor = [UIColor clearColor];
     
     RSPlayingCard* nextCard = [self dealCard:FALSE toPlayer:@"player"];
     [playershandofCards addObject:nextCard];
@@ -122,7 +127,7 @@
     if (pTotal > 21) 
     {
         pcardTotal.text = @"Bust!";
-        pcardTotal.textColor = [UIColor redColor];
+        pcardTotal.backgroundColor = [UIColor redColor];
         [playershandofCards removeAllObjects]; 
         [kDelegate newDeal];
         [self resetPlay];
@@ -134,6 +139,16 @@
             pcardTotal.text = [pcardTotal.text stringByAppendingFormat:@" or %i", aTotal];
         }
     }
+}
+
+- (void)dealerLogic
+{
+    
+}
+
+- (void)betHandler
+{
+    
 }
 
 - (RSPlayingCard*)dealCard:(BOOL)newHand toPlayer:(NSString*)player

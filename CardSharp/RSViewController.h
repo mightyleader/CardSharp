@@ -40,5 +40,8 @@
 - (IBAction)buttonPressed:(id)sender;
 - (RSPlayingCard*)dealCard:(BOOL)newHand toPlayer:(NSString*)player;
 - (void)resetPlay;
+- (void)playerLogic;
+- (void)dealerLogic;
+- (void)betHandler;
 
 @end
