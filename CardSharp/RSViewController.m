@@ -74,10 +74,11 @@
     //TODO: Handle 'Stand/Stick' action
     //TODO: Handle 'Split' condition
     //TODO: Handle dealers turn 
+    //TODO: Spin all this out into a seperate method? 
     
     if ([playershandofCards count] == 5) 
     {
-        [playershandofCards removeAllObjects];
+        [playershandofCards removeAllObjects]; //TODO: Extraneous? Might be, remove if so.
     }
     
     int pTotal = [pcardTotal.text intValue];
@@ -86,13 +87,14 @@
     
     RSPlayingCard* nextCard = [self dealCard:FALSE toPlayer:@"player"];
     [playershandofCards addObject:nextCard];
+    
     pTotal = pTotal + [nextCard.cardValue intValue];
-    int aTotal = pTotal + 10;
+    int aTotal = pTotal + 10; //only used when there's aces in places ;)
     
     //Ace detector
     if ([nextCard.cardValue intValue] == 1) 
     {
-        aceFlag = TRUE;
+        aceFlag = TRUE; //Ace is back and he told you so.
     }
     
     //Set label text appropriately
@@ -140,7 +142,7 @@
     {
         [kDelegate newDeal]; //shuffles the deck
     }
-    int nextentry = [playershandofCards count]; //effectively gives you the next place to deal a card into AND from. Nice.
+    int nextentry = [playershandofCards count]; //effectively gives you the next index to deal a card to AND from. Nice.
     int nextshuffledcard = [[[kDelegate shuffledDeckReference] objectAtIndex:nextentry] intValue];
     RSPlayingCard *dealtCard = [[kDelegate referenceDeck].sortedDeck objectAtIndex:nextshuffledcard];
     
