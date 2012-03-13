@@ -162,7 +162,6 @@
     RSPlayingCard *dealtCard = [[kDelegate referenceDeck].sortedDeck objectAtIndex:nextshuffledcard];
     
     return dealtCard;
-
 }
 
 - (void)resetPlay
