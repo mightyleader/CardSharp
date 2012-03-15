@@ -78,6 +78,9 @@
         case 102:
             [self dealerLogic];
             break;
+        case 103:
+            [self resetPlay];
+            break;
         default:
             break;
     }
@@ -139,7 +142,6 @@
         pcardTotal.backgroundColor = [UIColor redColor];
         [playershandofCards removeAllObjects]; 
         [kDelegate newDeal];
-        [self resetPlay];
         //TODO: Pay dealer bet amount.
     } else {
         pcardTotal.text = [NSString stringWithFormat:@"%i", pTotal];
@@ -152,13 +154,72 @@
 
 - (void)dealerLogic
 {
-    NSLog(@"Test button response");
-    //deal a card
-    // 0.5 second delay (user configurable
-    //if total < 17 then draw [self dealerLogic];
-    //if total => 18 then stand
-    //if hand count == 5 then stand
+    int dTotal = [dcardTotal.text intValue];
     
+    //deal a card
+    dcardTotal.textColor = [UIColor whiteColor];
+    dcardTotal.backgroundColor = [UIColor clearColor];
+    
+    RSPlayingCard* nextCard = [self dealCard:FALSE toPlayer:@"dealer"];
+    [dealershandofCards addObject:nextCard];
+    
+    dTotal = dTotal + [nextCard.cardValue intValue];
+    int aTotal = dTotal + 10; //only used when there's aces in places ;)
+    
+    //Ace detector
+    if ([nextCard.cardValue intValue] == 1) 
+    {
+        aceFlag = TRUE; //Ace is back and he told you so.
+    }
+    
+    //Set label text appropriately
+    switch ([dealershandofCards count]) 
+    {
+        case 1:
+            dcardOne.text = nextCard.cardText;
+            break;
+        case 2:
+            dcardTwo.text = nextCard.cardText;
+            break;
+        case 3:
+            dcardThree.text = nextCard.cardText;
+            break;
+        case 4:
+            dcardFour.text = nextCard.cardText;
+            break;
+        case 5:
+            dcardFive.text = nextCard.cardText;
+            break;
+        default:
+            break;
+    }
+    if (dTotal > 21)
+    {
+        dcardTotal.text = @"Bust!";
+        dcardTotal.backgroundColor = [UIColor redColor];
+        [dealershandofCards removeAllObjects]; 
+        [kDelegate newDeal];
+    } 
+        else if ((dTotal < 17) && ([dealershandofCards count] < 5)) 
+    {
+        // 0.5 second delay (user configurable?)
+        dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
+        if (aceFlag && aTotal <= 21) 
+        {
+            dcardTotal.text = [dcardTotal.text stringByAppendingFormat:@" or %i", aTotal];
+        }
+        [self dealerLogic];
+    } 
+        else if ((dTotal >= 18) || ([dealershandofCards count] == 5)) //if total => 18 or if hand count == 5 then stand
+    {
+        // 0.5 second delay (user configurable?)
+        dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
+        if (aceFlag && aTotal <= 21) 
+        {
+            dcardTotal.text = [dcardTotal.text stringByAppendingFormat:@" or %i", aTotal];
+        }
+        [self resultHandler];
+    }
 }
 
 
@@ -174,10 +235,24 @@
     {
         [kDelegate newDeal]; //shuffles the deck
     }
-    int nextentry = [playershandofCards count]; //effectively gives you the next index to deal a card to AND from. Nice.
-    int nextshuffledcard = [[[kDelegate shuffledDeckReference] objectAtIndex:nextentry] intValue];
-    RSPlayingCard *dealtCard = [[kDelegate referenceDeck].sortedDeck objectAtIndex:nextshuffledcard];
+    int nextentry;
+    int nextshuffledcard;
+    RSPlayingCard *dealtCard;
     
+    if ([player isEqualToString:@"player"]) 
+    {
+        nextentry = [playershandofCards count]; //effectively gives you the next index to deal a card to AND from. Nice.
+        nextshuffledcard = [[[kDelegate shuffledDeckReference] objectAtIndex:nextentry] intValue];
+        dealtCard = [[kDelegate referenceDeck].sortedDeck objectAtIndex:nextshuffledcard];
+    }
+         
+    if ([player isEqualToString:@"dealer"]) 
+    {
+        nextentry = [dealershandofCards count] + 10; //effectively gives you the next index to deal a card to AND from. Nice.
+        nextshuffledcard = [[[kDelegate shuffledDeckReference] objectAtIndex:nextentry] intValue];
+        dealtCard = [[kDelegate referenceDeck].sortedDeck objectAtIndex:nextshuffledcard];
+    }
+
     return dealtCard;
 }
 
@@ -198,8 +273,14 @@
     dcardThree.text = nil;
     dcardFour.text = nil;
     dcardFive.text = nil;
+    pcardTotal.text = nil;
+    dcardTotal.text = nil;
+    pcardTotal.backgroundColor = [UIColor clearColor];
+    dcardTotal.backgroundColor = [UIColor clearColor];
     aceFlag = FALSE;
     [playershandofCards removeAllObjects];
+    [dealershandofCards removeAllObjects];
+    [kDelegate newDeal];
     
 }
 
