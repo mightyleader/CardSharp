@@ -117,7 +117,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DJ7-qR-c0g">
+                            <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DJ7-qR-c0g">
                                 <rect key="frame" x="22" y="403" width="119" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
@@ -132,7 +132,7 @@
                                     <action selector="buttonPressed:" destination="2" eventType="touchUpInside" id="heB-Ms-VI0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qe5-sr-emn">
+                            <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qe5-sr-emn">
                                 <rect key="frame" x="170" y="403" width="119" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
@@ -143,6 +143,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="2" eventType="touchUpInside" id="Cry-mb-ire"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
@@ -167,27 +170,6 @@
             <point key="canvasLocation" x="-40" y="54"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="RSViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RSViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonPressed:"/>
-                <relationship kind="outlet" name="actionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="dcardFive" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dcardFour" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dcardOne" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dcardThree" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dcardTotal" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dcardTwo" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pcardFive" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pcardFour" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pcardOne" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pcardThree" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pcardTotal" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pcardTwo" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

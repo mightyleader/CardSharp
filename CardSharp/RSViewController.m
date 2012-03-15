@@ -71,7 +71,16 @@
 
 - (IBAction)buttonPressed:(id)sender 
 {
-    [self playerLogic];
+    switch ([sender tag]) {
+        case 101:
+            [self playerLogic];
+            break;
+        case 102:
+            [self dealerLogic];
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)playerLogic
@@ -143,8 +152,16 @@
 
 - (void)dealerLogic
 {
+    NSLog(@"Test button response");
+    //deal a card
+    // 0.5 second delay (user configurable
+    //if total < 17 then draw [self dealerLogic];
+    //if total => 18 then stand
+    //if hand count == 5 then stand
     
 }
+
+
 
 - (void)betHandler
 {
@@ -162,6 +179,11 @@
     RSPlayingCard *dealtCard = [[kDelegate referenceDeck].sortedDeck objectAtIndex:nextshuffledcard];
     
     return dealtCard;
+}
+
+- (void)resultHandler
+{
+    
 }
 
 - (void)resetPlay

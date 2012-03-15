@@ -42,6 +42,7 @@
 - (void)resetPlay;
 - (void)playerLogic;
 - (void)dealerLogic;
+- (void)resultHandler;
 - (void)betHandler;
 
 @end
