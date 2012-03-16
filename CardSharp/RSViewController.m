@@ -88,9 +88,7 @@
 
 - (void)playerLogic
 {
-    //TODO: Handle 'Stand/Stick' action
     //TODO: Handle 'Split' condition
-    //TODO: Handle dealers turn 
     
     if ([playershandofCards count] == 5) 
     {
@@ -154,6 +152,8 @@
 
 - (void)dealerLogic
 {
+    //TODO: Added pause between card deals
+    
     int dTotal = [dcardTotal.text intValue];
     
     //deal a card
