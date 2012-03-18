@@ -92,13 +92,13 @@
             [self randomoneoutofFour];
             break;
         case 102:
-            if (aceFlag == TRUE && dTotal <= 21) {
-                pTotal = dTotal;
+            if ((aceFlag == TRUE) && (aTotal <= 21)) {
+                pTotal = aTotal;
             }
             aceFlag = FALSE;
             [self dealerLogic];
             [actionButton setEnabled:NO];
-            [standButton setEnabled:NO];
+            [standButton setEnabled:NO];	
             break;
         case 103:
             [self resetPlay];
@@ -160,7 +160,7 @@
         pcardTotal.text = @"Bust!";
         pcardTotal.backgroundColor = [UIColor redColor];
         [playershandofCards removeAllObjects]; 
-        [kDelegate newDeal];
+        [self resultHandler];
         //TODO: Pay dealer bet amount.
     } else {
         pcardTotal.text = [NSString stringWithFormat:@"%i", pTotal];
@@ -168,14 +168,15 @@
         {
             pcardTotal.text = [pcardTotal.text stringByAppendingFormat:@" or %i", aTotal];
         }
+		if ([playershandofCards count] == 1) {
+			[self performSelector:@selector(playerLogic) withObject:nil afterDelay:0.65]; 
+		}
     }
 }
 
 - (void)dealerLogic
 {
-    //TODO: Added pause between card deals
-    
-    dTotal = [dcardTotal.text intValue];
+	dTotal = [dcardTotal.text intValue];
     
     //deal a card
     dcardTotal.textColor = [UIColor whiteColor];
@@ -216,53 +217,56 @@
     }
     if (dTotal > 21) //bust condition
     {
+		NSLog(@"Over 21: Bust, %i/%i", dTotal, adTotal); //DEBUG
         dcardTotal.text = @"Bust!";
         dcardTotal.backgroundColor = [UIColor redColor];
-        [dealershandofCards removeAllObjects]; 
-        [kDelegate newDeal];
+        [self resultHandler];
     } 
-    else if (dTotal > pTotal) //stand if dealers won but could still draw
+    else if (dTotal > pTotal) //stand if dealers won but could still draw a card
     {
+		NSLog(@"Dealer beats player: Stand, %i/%i", dTotal, adTotal); //DEBUG
+		dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
        [self performSelector:@selector(resultHandler) withObject:nil afterDelay:0.75];    
     }
-    else if ((dTotal < 17) && ([dealershandofCards count] < 5))  //always draw on 16 or less
+	else if ((aceFlag == TRUE) && (adTotal > pTotal) && (adTotal <= 21)) //alt stand if dealers won but could still draw a card
     {
+		NSLog(@"Alt Dealer beats player: Stand, %i/%i", dTotal, adTotal); //DEBUG
+		dcardTotal.text = [NSString stringWithFormat:@"%i", adTotal];
+		dTotal = adTotal;
+		[self performSelector:@selector(resultHandler) withObject:nil afterDelay:0.75];    
+    }
+    else if ((dTotal < pTotal) && ([dealershandofCards count] < 5))  //always draw when losing to player
+    {
+		NSLog(@"Under pTotal and no 5CT: Draw, %i/%i", dTotal, adTotal); //DEBUG
         dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
         if (aceFlag && adTotal <= 21) 
         {
+			NSLog(@"Ace in the hand, appending alt score, %i/%i", dTotal, adTotal); //DEBUG
             dcardTotal.text = [dcardTotal.text stringByAppendingFormat:@" or %i", adTotal];
         }
         [self performSelector:@selector(dealerLogic) withObject:nil afterDelay:0.75];
     } 
-        else if ((dTotal >= 19) || ([dealershandofCards count] == 5)) //stand if over 19 or 5 card trick
+	else if ((dTotal >= pTotal)) //stand if over or equal to player or 5 card trick
+		//DEBUG  || ([dealershandofCards count] == 5)
     {
-        dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
-        if (aceFlag && adTotal <= 21) 
+        NSLog(@">=19 or 5CT: Stand, %i/%i vs %i", dTotal, adTotal, pTotal); //DEBUG
+		dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
+        if ((aceFlag == TRUE) && (adTotal <= 21)) 
         {
+			NSLog(@"Ace in the hand, appending alt score, %i/%i", dTotal, adTotal); //DEBUG
             dcardTotal.text = [dcardTotal.text stringByAppendingFormat:@" or %i", adTotal];
+			dTotal = adTotal;
         }
         [self performSelector:@selector(resultHandler) withObject:nil afterDelay:0.75];
     } 
-        else //otherwise on a 17 or 18 there's a 1 in 5 chance to draw otherwise stand.
-    {
-        dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
-        if (aceFlag && adTotal <= 21) 
-        {
-            dcardTotal.text = [dcardTotal.text stringByAppendingFormat:@" or %i", adTotal];
-        }
-        if ([self randomoneoutofFour] == TRUE) 
-        {
-            [self performSelector:@selector(resultHandler) withObject:nil afterDelay:0.75];
-        } 
-        else if ([self randomoneoutofFour] == FALSE) 
-        {
-            [self performSelector:@selector(resultHandler) withObject:nil afterDelay:0.75];
-        }
-        
-    }
+	else if ([dealershandofCards count] == 5) 
+	{
+		NSLog(@"Five Card Trick, %i/%i", dTotal, adTotal); //DEBUG
+		dTotal = 21, adTotal = 21;
+		dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
+		[self performSelector:@selector(resultHandler) withObject:nil afterDelay:0.75];
+	}
 }
-
-
 
 - (void)betHandler
 {
@@ -297,7 +301,47 @@
 
 - (void)resultHandler
 {
-    
+    NSLog(@"Player: %i/%i. Dealer: %i/%i", pTotal, aTotal, dTotal, adTotal);
+	
+	int playershighestHand;
+	int dealershighestHand;
+	NSString *titleString = [[NSString alloc] init];
+	NSString *messageString = [[NSString alloc] init];
+	
+	if (pTotal > 21) 
+	{
+		playershighestHand = 0;
+	} else {
+		playershighestHand = pTotal;
+	}
+	
+	if (dTotal > 21) 
+	{
+		dealershighestHand = 0;
+	} else {
+		dealershighestHand = dTotal;
+	}
+	
+	if (playershighestHand > dealershighestHand) 
+	{
+		titleString = @"You won!";
+		messageString = [NSString stringWithFormat:@"You scored %i, I scored %i", pTotal, dTotal];
+	} else if (dealershighestHand > playershighestHand) 
+	{
+		titleString = @"You lost...";
+		messageString = [NSString stringWithFormat:@"I scored %i, you scored %i", dTotal, pTotal];
+	} else if (playershighestHand == dealershighestHand) 
+	{
+		titleString = @"It's a draw";
+		messageString = [NSString stringWithFormat:@"We both scored %i", pTotal];
+	}
+	
+	UIAlertView *resultView = [[UIAlertView alloc] initWithTitle:titleString 
+														 message:messageString 
+														delegate:self 
+											   cancelButtonTitle:@"Play Again" 
+											   otherButtonTitles: nil];
+	[resultView show];
 }
 
 - (BOOL)randomoneoutofFour
@@ -324,6 +368,7 @@
     dcardFive.text = nil;
     pcardTotal.text = nil;
     dcardTotal.text = nil;
+	pTotal = 0, dTotal = 0, aTotal = 0, adTotal = 0;
     pcardTotal.backgroundColor = [UIColor clearColor];
     dcardTotal.backgroundColor = [UIColor clearColor];
     aceFlag = FALSE;
@@ -332,6 +377,8 @@
     [kDelegate newDeal];
     [actionButton setEnabled:YES];
     [standButton setEnabled:YES];
+	[self performSelector:@selector(playerLogic) withObject:nil afterDelay:0.75]; 
+	
     
 }
 
