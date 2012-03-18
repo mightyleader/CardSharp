@@ -5,6 +5,15 @@
 //  Created by Robert Stearn on 03.03.12.
 //  Copyright (c) 2012 Cocoadelica. All rights reserved.
 //
+// **Coding standard**
+// All curly and square braces on a new line. 
+// Single space between operands and operators.
+// No space between braces or brackets and operands.
+// #define-ed constants start with k.
+// Tab-indenting, 4 spaces per tab.
+// TODO: indicates outstanding task
+// DEBUG: indicates code to be removed before production
+// **End Coding Standard**
 
 #import "RSViewController.h"
 #define kDelegate (RSAppDelegate*)[[UIApplication sharedApplication] delegate]
@@ -21,6 +30,7 @@
 @synthesize dcardFour;
 @synthesize dcardFive;
 @synthesize actionButton;
+@synthesize standButton;
 @synthesize pcardOne;
 @synthesize pcardTwo;
 @synthesize pcardThree;
@@ -32,6 +42,7 @@
 @synthesize playerCounts;
 @synthesize dealerCounts;
 @synthesize aceFlag;
+@synthesize aTotal, pTotal, adTotal, dTotal;
 
 - (void)viewDidLoad
 {
@@ -60,6 +71,7 @@
     [self setPlayerCounts:nil];
     [self setDealerCounts:nil];
     [self setDealershandofCards:nil];
+    [self setStandButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -69,14 +81,24 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)standButton:(id)sender {
+}
+
 - (IBAction)buttonPressed:(id)sender 
 {
     switch ([sender tag]) {
         case 101:
             [self playerLogic];
+            [self randomoneoutofFour];
             break;
         case 102:
+            if (aceFlag == TRUE && dTotal <= 21) {
+                pTotal = dTotal;
+            }
+            aceFlag = FALSE;
             [self dealerLogic];
+            [actionButton setEnabled:NO];
+            [standButton setEnabled:NO];
             break;
         case 103:
             [self resetPlay];
@@ -95,7 +117,7 @@
         [playershandofCards removeAllObjects]; //TODO: Extraneous? Might be, remove if so.
     }
     
-    int pTotal = [pcardTotal.text intValue]; //Carry over the running total
+    pTotal = [pcardTotal.text intValue]; //Carry over the running total
     
     pcardTotal.textColor = [UIColor whiteColor];
     pcardTotal.backgroundColor = [UIColor clearColor];
@@ -104,9 +126,8 @@
     [playershandofCards addObject:nextCard];
     
     pTotal = pTotal + [nextCard.cardValue intValue];
-    int aTotal = pTotal + 10; //only used when there's aces in places ;)
+    aTotal = pTotal + 10; //only used when there's aces in places ;)
     
-    //Ace detector
     if ([nextCard.cardValue intValue] == 1) 
     {
         aceFlag = TRUE; //Ace is back and he told you so.
@@ -154,7 +175,7 @@
 {
     //TODO: Added pause between card deals
     
-    int dTotal = [dcardTotal.text intValue];
+    dTotal = [dcardTotal.text intValue];
     
     //deal a card
     dcardTotal.textColor = [UIColor whiteColor];
@@ -164,7 +185,7 @@
     [dealershandofCards addObject:nextCard];
     
     dTotal = dTotal + [nextCard.cardValue intValue];
-    int aTotal = dTotal + 10; //only used when there's aces in places ;)
+    adTotal = dTotal + 10; //only used when there's aces in places ;)
     
     //Ace detector
     if ([nextCard.cardValue intValue] == 1) 
@@ -193,32 +214,51 @@
         default:
             break;
     }
-    if (dTotal > 21)
+    if (dTotal > 21) //bust condition
     {
         dcardTotal.text = @"Bust!";
         dcardTotal.backgroundColor = [UIColor redColor];
         [dealershandofCards removeAllObjects]; 
         [kDelegate newDeal];
     } 
-        else if ((dTotal < 17) && ([dealershandofCards count] < 5)) 
+    else if (dTotal > pTotal) //stand if dealers won but could still draw
     {
-        // 0.5 second delay (user configurable?)
+       [self performSelector:@selector(resultHandler) withObject:nil afterDelay:0.75];    
+    }
+    else if ((dTotal < 17) && ([dealershandofCards count] < 5))  //always draw on 16 or less
+    {
         dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
-        if (aceFlag && aTotal <= 21) 
+        if (aceFlag && adTotal <= 21) 
         {
-            dcardTotal.text = [dcardTotal.text stringByAppendingFormat:@" or %i", aTotal];
+            dcardTotal.text = [dcardTotal.text stringByAppendingFormat:@" or %i", adTotal];
         }
-        [self dealerLogic];
+        [self performSelector:@selector(dealerLogic) withObject:nil afterDelay:0.75];
     } 
-        else if ((dTotal >= 18) || ([dealershandofCards count] == 5)) //if total => 18 or if hand count == 5 then stand
+        else if ((dTotal >= 19) || ([dealershandofCards count] == 5)) //stand if over 19 or 5 card trick
     {
-        // 0.5 second delay (user configurable?)
         dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
-        if (aceFlag && aTotal <= 21) 
+        if (aceFlag && adTotal <= 21) 
         {
-            dcardTotal.text = [dcardTotal.text stringByAppendingFormat:@" or %i", aTotal];
+            dcardTotal.text = [dcardTotal.text stringByAppendingFormat:@" or %i", adTotal];
         }
-        [self resultHandler];
+        [self performSelector:@selector(resultHandler) withObject:nil afterDelay:0.75];
+    } 
+        else //otherwise on a 17 or 18 there's a 1 in 5 chance to draw otherwise stand.
+    {
+        dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
+        if (aceFlag && adTotal <= 21) 
+        {
+            dcardTotal.text = [dcardTotal.text stringByAppendingFormat:@" or %i", adTotal];
+        }
+        if ([self randomoneoutofFour] == TRUE) 
+        {
+            [self performSelector:@selector(resultHandler) withObject:nil afterDelay:0.75];
+        } 
+        else if ([self randomoneoutofFour] == FALSE) 
+        {
+            [self performSelector:@selector(resultHandler) withObject:nil afterDelay:0.75];
+        }
+        
     }
 }
 
@@ -248,17 +288,26 @@
          
     if ([player isEqualToString:@"dealer"]) 
     {
-        nextentry = [dealershandofCards count] + 10; //effectively gives you the next index to deal a card to AND from. Nice.
+        nextentry = [dealershandofCards count] + 10; //yes, it's duplicated code but it's only 3 lines so deal with it. 'Deal'. Ha!
         nextshuffledcard = [[[kDelegate shuffledDeckReference] objectAtIndex:nextentry] intValue];
         dealtCard = [[kDelegate referenceDeck].sortedDeck objectAtIndex:nextshuffledcard];
     }
-
     return dealtCard;
 }
 
 - (void)resultHandler
 {
     
+}
+
+- (BOOL)randomoneoutofFour
+{
+    int randomNumber = arc4random() % 25; //random number from 0-25
+    if ((randomNumber % 5) == 0) //does it divide evenly by 5?
+    {
+        return TRUE;
+    }
+    return FALSE; 
 }
 
 - (void)resetPlay
@@ -281,6 +330,8 @@
     [playershandofCards removeAllObjects];
     [dealershandofCards removeAllObjects];
     [kDelegate newDeal];
+    [actionButton setEnabled:YES];
+    [standButton setEnabled:YES];
     
 }
 
