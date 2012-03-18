@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Cocoadelica. All rights reserved.
 //
 // **Coding standard**
-// All curly and square braces on a new line. 
+// All curly braces on a new line. 
 // Single space between operands and operators.
 // No space between braces or brackets and operands.
 // #define-ed constants start with k.
