@@ -50,6 +50,7 @@
     playershandofCards = [[NSMutableArray alloc] initWithCapacity:10];
     dealershandofCards = [[NSMutableArray alloc] initWithCapacity:5];
 	// Do any additional setup after loading the view, typically from a nib.
+	[self resetPlay];
 }
 
 - (void)viewDidUnload
@@ -161,14 +162,16 @@
         pcardTotal.backgroundColor = [UIColor redColor];
         [playershandofCards removeAllObjects]; 
         [self resultHandler];
-        //TODO: Pay dealer bet amount.
-    } else {
+    }
+	else 
+	{
         pcardTotal.text = [NSString stringWithFormat:@"%i", pTotal];
         if (aceFlag && aTotal <= 21) 
         {
             pcardTotal.text = [pcardTotal.text stringByAppendingFormat:@" or %i", aTotal];
         }
-		if ([playershandofCards count] == 1) {
+		if ([playershandofCards count] == 1) 
+		{
 			[self performSelector:@selector(playerLogic) withObject:nil afterDelay:0.65]; 
 		}
     }
@@ -301,6 +304,8 @@
 
 - (void)resultHandler
 {
+	//TODO: Pay bet amount.
+	
     NSLog(@"Player: %i/%i. Dealer: %i/%i", pTotal, aTotal, dTotal, adTotal);
 	
 	//TODO: This really doesn't work properly yet
