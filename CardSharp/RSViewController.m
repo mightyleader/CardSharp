@@ -73,6 +73,7 @@
     [self setDealerCounts:nil];
     [self setDealershandofCards:nil];
     [self setStandButton:nil];
+	//TODO: Lot's of things to add here to make sure ARC works right
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -346,7 +347,7 @@
 														 message:messageString 
 														delegate:self 
 											   cancelButtonTitle:@"Play Again" 
-											   otherButtonTitles: nil];
+											   otherButtonTitles: nil]; //TODO: Replace this with a custom presentation.
 	[resultView show];
 }
 
