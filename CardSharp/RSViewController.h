@@ -49,8 +49,6 @@
 
 //Controls
 @property (strong, nonatomic) IBOutlet UIButton *actionButton;
-@property (strong, nonatomic) IBOutlet UIButton *standButton;
-
 
 - (IBAction)buttonPressed:(id)sender;
 - (RSPlayingCard*)dealCard:(BOOL)newHand toPlayer:(NSString*)player;

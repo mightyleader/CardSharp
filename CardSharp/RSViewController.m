@@ -30,7 +30,6 @@
 @synthesize dcardFour;
 @synthesize dcardFive;
 @synthesize actionButton;
-@synthesize standButton;
 @synthesize pcardOne;
 @synthesize pcardTwo;
 @synthesize pcardThree;
@@ -72,7 +71,6 @@
     [self setPlayerCounts:nil];
     [self setDealerCounts:nil];
     [self setDealershandofCards:nil];
-    [self setStandButton:nil];
 	//TODO: Lot's of things to add here to make sure ARC works right
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -81,9 +79,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
-- (IBAction)standButton:(id)sender {
 }
 
 - (IBAction)buttonPressed:(id)sender 
@@ -99,8 +94,7 @@
             }
             aceFlag = FALSE;
             [self dealerLogic];
-            [actionButton setEnabled:NO];
-            [standButton setEnabled:NO];	
+            [actionButton setEnabled:NO];	
             break;
         case 103:
             [self resetPlay];
@@ -383,7 +377,6 @@
     [dealershandofCards removeAllObjects];
     [kDelegate newDeal];
     [actionButton setEnabled:YES];
-    [standButton setEnabled:YES];
 	[self performSelector:@selector(playerLogic) withObject:nil afterDelay:0.75]; 
 	
     
