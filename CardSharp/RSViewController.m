@@ -261,7 +261,7 @@
 	{
 		NSLog(@"Five Card Trick, %i/%i", dTotal, adTotal); //DEBUG
 		dTotal = 21, adTotal = 21;
-		dcardTotal.text = [NSString stringWithFormat:@"%i", dTotal];
+		dcardTotal.text = @"Five card trick";
 		[self performSelector:@selector(resultHandler) withObject:nil afterDelay:0.75];
 	}
 }
@@ -347,6 +347,7 @@
 
 - (BOOL)randomoneoutofFour
 {
+	//TODO: No longer used.
     int randomNumber = arc4random() % 25; //random number from 0-25
     if ((randomNumber % 5) == 0) //does it divide evenly by 5?
     {

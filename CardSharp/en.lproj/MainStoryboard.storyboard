@@ -182,13 +182,33 @@
                         <outlet property="pcardThree" destination="cF7-hX-vw0" id="aar-55-uT0"/>
                         <outlet property="pcardTotal" destination="mO4-zT-m4B" id="VE6-oL-k1l"/>
                         <outlet property="pcardTwo" destination="4P0-Ez-iCB" id="Ehx-gc-VL1"/>
-                        <outlet property="standButton" destination="qe5-sr-emn" id="hcc-dv-Suf"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-40" y="54"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="RSViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RSViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonPressed:"/>
+                <relationship kind="outlet" name="actionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dcardFive" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dcardFour" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dcardOne" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dcardThree" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dcardTotal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dcardTwo" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pcardFive" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pcardFour" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pcardOne" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pcardThree" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pcardTotal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pcardTwo" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
