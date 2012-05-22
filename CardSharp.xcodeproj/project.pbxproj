@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D424FD2C1561506500EA6A06 /* RSPhysicalCard.m in Sources */ = {isa = PBXBuildFile; fileRef = D424FD2B1561506500EA6A06 /* RSPhysicalCard.m */; };
+		D47D66E31564DB1A00A09D05 /* UIView+JMNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = D47D66E21564DB1A00A09D05 /* UIView+JMNoise.m */; };
+		D47D66E61564DC9B00A09D05 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47D66E51564DC9B00A09D05 /* QuartzCore.framework */; };
 		D487BC3C150FEC81004FCA3B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D487BC3B150FEC81004FCA3B /* icon.png */; };
 		D487BC3F150FEC83004FCA3B /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D487BC3E150FEC83004FCA3B /* icon@2x.png */; };
+		D497B81B156C2E5400F84252 /* BCClub.m in Sources */ = {isa = PBXBuildFile; fileRef = D497B81A156C2E5400F84252 /* BCClub.m */; };
 		D4D83E8B150250FB000D4DFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D83E8A150250FB000D4DFC /* UIKit.framework */; };
 		D4D83E8D150250FB000D4DFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D83E8C150250FB000D4DFC /* Foundation.framework */; };
 		D4D83E8F150250FB000D4DFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D83E8E150250FB000D4DFC /* CoreGraphics.framework */; };
@@ -19,11 +23,19 @@
 		D4D83EA1150250FB000D4DFC /* RSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83EA0150250FB000D4DFC /* RSViewController.m */; };
 		D4D83EA915025407000D4DFC /* RSPackofCards.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83EA815025407000D4DFC /* RSPackofCards.m */; };
 		D4D83EAC1502553E000D4DFC /* RSPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83EAB1502553E000D4DFC /* RSPlayingCard.m */; };
+		D4FD6457156ACDCC0082A361 /* BCHeart.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FD6456156ACDCC0082A361 /* BCHeart.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D424FD2A1561506500EA6A06 /* RSPhysicalCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPhysicalCard.h; sourceTree = "<group>"; };
+		D424FD2B1561506500EA6A06 /* RSPhysicalCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPhysicalCard.m; sourceTree = "<group>"; };
+		D47D66E11564DB1A00A09D05 /* UIView+JMNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JMNoise.h"; sourceTree = "<group>"; };
+		D47D66E21564DB1A00A09D05 /* UIView+JMNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JMNoise.m"; sourceTree = "<group>"; };
+		D47D66E51564DC9B00A09D05 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D487BC3B150FEC81004FCA3B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D487BC3E150FEC83004FCA3B /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		D497B819156C2E5400F84252 /* BCClub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCClub.h; sourceTree = "<group>"; };
+		D497B81A156C2E5400F84252 /* BCClub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCClub.m; sourceTree = "<group>"; };
 		D4D83E86150250FA000D4DFC /* CardSharp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardSharp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D83E8A150250FB000D4DFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D4D83E8C150250FB000D4DFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -41,6 +53,8 @@
 		D4D83EA815025407000D4DFC /* RSPackofCards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPackofCards.m; sourceTree = "<group>"; };
 		D4D83EAA1502553E000D4DFC /* RSPlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPlayingCard.h; sourceTree = "<group>"; };
 		D4D83EAB1502553E000D4DFC /* RSPlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPlayingCard.m; sourceTree = "<group>"; };
+		D4FD6455156ACDCC0082A361 /* BCHeart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCHeart.h; sourceTree = "<group>"; };
+		D4FD6456156ACDCC0082A361 /* BCHeart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHeart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D47D66E61564DC9B00A09D05 /* QuartzCore.framework in Frameworks */,
 				D4D83E8B150250FB000D4DFC /* UIKit.framework in Frameworks */,
 				D4D83E8D150250FB000D4DFC /* Foundation.framework in Frameworks */,
 				D4D83E8F150250FB000D4DFC /* CoreGraphics.framework in Frameworks */,
@@ -57,9 +72,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D424FD2515614F8A00EA6A06 /* Physical */ = {
+			isa = PBXGroup;
+			children = (
+				D4FD6455156ACDCC0082A361 /* BCHeart.h */,
+				D4FD6456156ACDCC0082A361 /* BCHeart.m */,
+				D497B819156C2E5400F84252 /* BCClub.h */,
+				D497B81A156C2E5400F84252 /* BCClub.m */,
+				D47D66E11564DB1A00A09D05 /* UIView+JMNoise.h */,
+				D47D66E21564DB1A00A09D05 /* UIView+JMNoise.m */,
+				D424FD2A1561506500EA6A06 /* RSPhysicalCard.h */,
+				D424FD2B1561506500EA6A06 /* RSPhysicalCard.m */,
+			);
+			name = Physical;
+			sourceTree = "<group>";
+		};
 		D4D83E7B150250FA000D4DFC = {
 			isa = PBXGroup;
 			children = (
+				D47D66E51564DC9B00A09D05 /* QuartzCore.framework */,
 				D487BC3E150FEC83004FCA3B /* icon@2x.png */,
 				D487BC3B150FEC81004FCA3B /* icon.png */,
 				D4D83E90150250FB000D4DFC /* CardSharp */,
@@ -89,6 +120,7 @@
 		D4D83E90150250FB000D4DFC /* CardSharp */ = {
 			isa = PBXGroup;
 			children = (
+				D424FD2515614F8A00EA6A06 /* Physical */,
 				D4D83EAD1502575A000D4DFC /* Cards */,
 				D4D83E99150250FB000D4DFC /* RSAppDelegate.h */,
 				D4D83E9A150250FB000D4DFC /* RSAppDelegate.m */,
@@ -193,6 +225,10 @@
 				D4D83EA1150250FB000D4DFC /* RSViewController.m in Sources */,
 				D4D83EA915025407000D4DFC /* RSPackofCards.m in Sources */,
 				D4D83EAC1502553E000D4DFC /* RSPlayingCard.m in Sources */,
+				D424FD2C1561506500EA6A06 /* RSPhysicalCard.m in Sources */,
+				D47D66E31564DB1A00A09D05 /* UIView+JMNoise.m in Sources */,
+				D4FD6457156ACDCC0082A361 /* BCHeart.m in Sources */,
+				D497B81B156C2E5400F84252 /* BCClub.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,8 @@
 #import "RSViewController.h"
 #import "RSPhysicalCard.h"
 #import "BCHeart.h"
+#import "BCClub.h"
+
 #define kDelegate (RSAppDelegate*)[[UIApplication sharedApplication] delegate]
 
 @interface RSViewController ()
@@ -58,6 +60,9 @@
 	
 	BCHeart *aHeart = [[BCHeart alloc] initWithFrame:CGRectMake(50, 50, 50, 60)];
 	[self.view addSubview:aHeart];
+	
+	BCClub *aClub = [[BCClub alloc] initWithFrame:CGRectMake(50, 120, 50, 60)];
+	[self.view addSubview:aClub];
 	
 	[self resetPlay];
 }
