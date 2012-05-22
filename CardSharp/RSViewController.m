@@ -16,6 +16,8 @@
 // **End Coding Standard**
 
 #import "RSViewController.h"
+#import "RSPhysicalCard.h"
+#import "BCHeart.h"
 #define kDelegate (RSAppDelegate*)[[UIApplication sharedApplication] delegate]
 
 @interface RSViewController ()
@@ -48,7 +50,15 @@
     [super viewDidLoad];
     playershandofCards = [[NSMutableArray alloc] initWithCapacity:10];
     dealershandofCards = [[NSMutableArray alloc] initWithCapacity:5];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+	RSPhysicalCard *aCard = [[RSPhysicalCard alloc] initWithFrame:CGRectMake(-80, 100, 200, 300)];
+	[self.view addSubview:aCard];
+	RSPhysicalCard *bCard = [[RSPhysicalCard alloc] initWithFrame:CGRectMake(-80, -80, 200, 300)];
+	[self.view addSubview:bCard];
+	
+	BCHeart *aHeart = [[BCHeart alloc] initWithFrame:CGRectMake(50, 50, 50, 60)];
+	[self.view addSubview:aHeart];
+	
 	[self resetPlay];
 }
 
@@ -74,6 +84,7 @@
 	//TODO: Lot's of things to add here to make sure ARC works right
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+	
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
