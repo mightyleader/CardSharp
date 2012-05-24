@@ -1,12 +1,12 @@
 //
-//  BCClub.m
+//  BCSpade.m
 //  CardSharp
 //
 //  Created by Robert Stearn on 22/05/2012.
 //  Copyright (c) 2012 All rights reserved.
 //
 
-#import "BCClub.h"
+#import "BCSpade.h"
 
 #define PI 22/7
 #define max CGRectGetMaxX(self.bounds)
@@ -16,7 +16,7 @@
 #define miy CGRectGetMidY(self.bounds)
 #define loy CGRectGetMinY(self.bounds)
 
-@implementation BCClub
+@implementation BCSpade
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -36,13 +36,13 @@
 	CGContextSaveGState(currentContext);
 	CGContextSetRGBStrokeColor(currentContext, 0.0, 0.0, 0.0, 1.0);
 	CGContextSetRGBFillColor(currentContext, 0.0, 0.0, 0.0, 1.0);
-	UIBezierPath *heartPath = [UIBezierPath bezierPath];
-	[heartPath setLineWidth:1];
-	[heartPath addArcWithCenter:CGPointMake(max * 0.725, may * 0.659) radius:max * 0.275 startAngle:4.714 endAngle:	2.566 clockwise:YES];
-	[heartPath addArcWithCenter:CGPointMake(max * 0.275, may * 0.659) radius:max * 0.275 startAngle:0.593 endAngle:	4.714 clockwise:YES];
-	[heartPath addArcWithCenter:CGPointMake(mix, may * 0.341) radius:max * 0.275 startAngle:2.479 endAngle:0.558 clockwise:YES];
-	[heartPath closePath];
-	[heartPath fill];
+	UIBezierPath *spadePath = [UIBezierPath bezierPath];
+	[spadePath setLineWidth:1];
+	[spadePath addArcWithCenter:CGPointMake(max * 0.725, may * 0.659) radius:max * 0.275 startAngle:5.657 endAngle:	2.566 clockwise:YES];
+	[spadePath addArcWithCenter:CGPointMake(max * 0.275, may * 0.659) radius:max * 0.275 startAngle:0.593 endAngle:	3.7 clockwise:YES];
+	[spadePath addLineToPoint:CGPointMake(mix, may*0.09)];
+	[spadePath closePath];
+	[spadePath fill];
 	
 	UIBezierPath *footPath = [UIBezierPath bezierPath];
 	[footPath addArcWithCenter:CGPointMake(max*0.275, may*0.775) radius:max*0.225 startAngle:0.0 endAngle:1.571 clockwise:YES];

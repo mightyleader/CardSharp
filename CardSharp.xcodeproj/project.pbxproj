@@ -23,6 +23,7 @@
 		D4D83EA1150250FB000D4DFC /* RSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83EA0150250FB000D4DFC /* RSViewController.m */; };
 		D4D83EA915025407000D4DFC /* RSPackofCards.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83EA815025407000D4DFC /* RSPackofCards.m */; };
 		D4D83EAC1502553E000D4DFC /* RSPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D83EAB1502553E000D4DFC /* RSPlayingCard.m */; };
+		D4F2DB00156D9581006CE689 /* BCSpade.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F2DAFF156D9581006CE689 /* BCSpade.m */; };
 		D4FD6457156ACDCC0082A361 /* BCHeart.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FD6456156ACDCC0082A361 /* BCHeart.m */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,8 @@
 		D4D83EA815025407000D4DFC /* RSPackofCards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPackofCards.m; sourceTree = "<group>"; };
 		D4D83EAA1502553E000D4DFC /* RSPlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPlayingCard.h; sourceTree = "<group>"; };
 		D4D83EAB1502553E000D4DFC /* RSPlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPlayingCard.m; sourceTree = "<group>"; };
+		D4F2DAFE156D9581006CE689 /* BCSpade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCSpade.h; sourceTree = "<group>"; };
+		D4F2DAFF156D9581006CE689 /* BCSpade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCSpade.m; sourceTree = "<group>"; };
 		D4FD6455156ACDCC0082A361 /* BCHeart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCHeart.h; sourceTree = "<group>"; };
 		D4FD6456156ACDCC0082A361 /* BCHeart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHeart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +78,8 @@
 		D424FD2515614F8A00EA6A06 /* Physical */ = {
 			isa = PBXGroup;
 			children = (
+				D4F2DAFE156D9581006CE689 /* BCSpade.h */,
+				D4F2DAFF156D9581006CE689 /* BCSpade.m */,
 				D4FD6455156ACDCC0082A361 /* BCHeart.h */,
 				D4FD6456156ACDCC0082A361 /* BCHeart.m */,
 				D497B819156C2E5400F84252 /* BCClub.h */,
@@ -229,6 +234,7 @@
 				D47D66E31564DB1A00A09D05 /* UIView+JMNoise.m in Sources */,
 				D4FD6457156ACDCC0082A361 /* BCHeart.m in Sources */,
 				D497B81B156C2E5400F84252 /* BCClub.m in Sources */,
+				D4F2DB00156D9581006CE689 /* BCSpade.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

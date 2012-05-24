@@ -19,7 +19,7 @@
 #import "RSPhysicalCard.h"
 #import "BCHeart.h"
 #import "BCClub.h"
-
+#import "BCSpade.h"
 #define kDelegate (RSAppDelegate*)[[UIApplication sharedApplication] delegate]
 
 @interface RSViewController ()
@@ -63,6 +63,9 @@
 	
 	BCClub *aClub = [[BCClub alloc] initWithFrame:CGRectMake(50, 120, 50, 60)];
 	[self.view addSubview:aClub];
+	
+	BCSpade *aSpade = [[BCSpade alloc] initWithFrame:CGRectMake(50, 240, 50, 60)];
+	[self.view addSubview:aSpade];
 	
 	[self resetPlay];
 }
