@@ -95,7 +95,6 @@
 		D4D83E7B150250FA000D4DFC = {
 			isa = PBXGroup;
 			children = (
-				D47D66E51564DC9B00A09D05 /* QuartzCore.framework */,
 				D487BC3E150FEC83004FCA3B /* icon@2x.png */,
 				D487BC3B150FEC81004FCA3B /* icon.png */,
 				D4D83E90150250FB000D4DFC /* CardSharp */,
@@ -115,6 +114,7 @@
 		D4D83E89150250FB000D4DFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D47D66E51564DC9B00A09D05 /* QuartzCore.framework */,
 				D4D83E8A150250FB000D4DFC /* UIKit.framework */,
 				D4D83E8C150250FB000D4DFC /* Foundation.framework */,
 				D4D83E8E150250FB000D4DFC /* CoreGraphics.framework */,
